@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris</title>
+</head>
+
+<body>
+    <h1 style="font-family: arial; text-align: center">Tetrizone
+    </h1>
+
+    <canvas id="canvas" style="margin: 0 auto; display: block; width: 160px; height: 144px;"></canvas>
+
+    <script>
+        // https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
+        // https://p5js.org/examples/3d-geometries.html
+
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+        const W = canvas.width;
+        const H = canvas.height;
+        const BGC = "green";
+        const outline = "black";
+
+        ctx.fillStyle = BGC;
+        ctx.strokeStyle = outline;
+        ctx.lineWidth = 4;
+
+        // https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/stroke
+        ctx.fillRect(0, 0, W, H);
+        ctx.strokeRect(ctx.lineWidth / 2, ctx.lineWidth / 2, W - ctx.lineWidth, H - ctx.lineWidth);
+
+        let x = 30;
+        let state = "TITLE";
+
+        function gameLoop() {
+
+            if (state === "TITLE") {
+                ctx.clearRect(0, 0, W, H);
+                ctx.fillStyle = "black";
+                ctx.font = "30px Arial";
+                ctx.fillText("Teetris", x, 50);
+                x++;
+            }
+            else if (state === "GAME") {
+
+            }
+        }
+
+        setInterval(gameLoop, 1000 / 60);
+			//https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/transform
+    </script>
+</body>
+
+</html>
